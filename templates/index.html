@@ -7,7 +7,17 @@
     <title>Index</title>
 </head>
 <body>
-    <h4>Hola Mundo desde mi html</h4>
+    <h4>Hola Usuario</h4>
+    <h4>{{ name }}</h4>
+    <h4>{{ edad }}</h4>
+
+    {% if edad >= 18 %}
+       <p> Es mayor de edad</p>
+    {% endif %}
+
+    {% for num in lista  %}
+        {{ num }}
+    {% endfor %}
     
 </body>
 </html>
