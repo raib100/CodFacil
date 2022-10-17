@@ -1,6 +1,16 @@
 {% extends 'base.html'%}
+
+{% block title %}{{ title }}{% endblock %}
+
 {% block content %}  
-    <p>Esto es parte del index</p>
-    {{ name }} 
+    {% from '_macro.html' import render_field %}
+    <form>
+        {{ render_field(form.username, class='form-control') }}
+        {{ render_field(form.email, class='form-control') }}
+        {{ render_field(form.comment, class='form-control') }}
+        {{ form.submit() }}
+
+    </form>
+     
 
 {% endblock %}

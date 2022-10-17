@@ -1,13 +1,16 @@
-from flask import Flask, flash, render_template
+from flask import Flask, request, render_template
+
+import forms
+
+app = Flask(__name__)
 
 
-app= Flask (__name__)
+@app.route('/', methods=['GET', 'POST'])
+def index():
+    comment_form = forms.CommentForm()    
+    title = 'Curso de Flask'
+    return render_template('index.html', title=title, form=comment_form)
 
 
-@app.route('/')
-@app.route('/<name>')
-def hello(name='Ricardo'):
-    return render_template('index.html', name=name)
-    
-
-app.run(host='localhost', port=5000, debug=True)
+if __name__ == '__main__':
+    app.run(port=5000, debug=True)
